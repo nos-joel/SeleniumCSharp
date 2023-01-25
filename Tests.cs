@@ -1,12 +1,7 @@
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using System;
 using System.Threading;
 using Xunit;
 
-//namespace xUnitTest1
-//{
 
 public class ModuleA
     {       
@@ -14,6 +9,7 @@ public class ModuleA
         public void Test1()
         {
             Utilities AU = new Utilities();
+
             AU.createDriver();
             IWebDriver driver = AU.getDriver();
 
@@ -31,7 +27,7 @@ public class ModuleA
         }
     }
 
-    public class ModuleB
+public class ModuleB
     {
         [Fact]
         public void Test2()
@@ -39,15 +35,13 @@ public class ModuleA
             
             Utilities AU = new Utilities();
             AU.createDriver();
-            IWebDriver driver = AU.getDriver();
-       
-            driver.Navigate().GoToUrl("https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members");
-            driver.Quit();
+            AU.OnDriver().Navigate().GoToUrl("https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members");
+            AU.OnDriver().Quit();
            
         }
 
     }
-    public class ModuleC
+public class ModuleC
     {
         [Fact]
         public void Test3()
@@ -55,17 +49,14 @@ public class ModuleA
             
             Utilities AU = new Utilities();
             AU.createDriver();
-            IWebDriver driver = AU.getDriver();
-
-            driver.Navigate().GoToUrl("https://www.rainforestqa.com/how-rainforest-works");
+            AU.OnDriver().Navigate().GoToUrl("https://www.rainforestqa.com/how-rainforest-works");
 
             PageObjects.Rainforest rainforest = new PageObjects.Rainforest();
-            AU.WaitFor().VisibilityOfElement(By.XPath("//video"), 10);
+            AU.WaitFor().VisibilityOfElement(rainforest.introVideo, 10);
             AU.On(rainforest.pricing).AssertThat("innerText").Equals("Pricing");
             AU.On(rainforest.pricing).Click();
-            driver.Quit();
+            AU.OnDriver().Quit();
                        
         }
 
     }
-//}

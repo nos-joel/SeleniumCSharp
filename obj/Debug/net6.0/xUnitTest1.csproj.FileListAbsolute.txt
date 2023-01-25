@@ -101,3 +101,4 @@ C:\Users\Joel\source\repos\xUnitTest1\xUnitTest1\bin\Debug\net6.0\selenium-manag
 C:\Users\Joel\source\repos\xUnitTest1\xUnitTest1\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
 C:\Users\Joel\source\repos\xUnitTest1\xUnitTest1\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
 C:\Users\Joel\source\repos\xUnitTest1\xUnitTest1\bin\Debug\net6.0\WebDriver.dll
+C:\Users\Joel\source\repos\xUnitTest1\xUnitTest1\bin\Debug\net6.0\WebDriver.Support.dll
