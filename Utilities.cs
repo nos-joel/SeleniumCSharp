@@ -53,7 +53,7 @@ public class Utilities
     }
 
     /// <summary>
-    /// getDriver fuctions returns the driver object of the configured Browser 
+    /// getDriver fuction returns the driver object of the configured Browser 
     /// </summary>
     /// <returns>driver</returns>
     public IWebDriver getDriver()
@@ -62,7 +62,7 @@ public class Utilities
     }
         
     /// <summary>
-    /// WaitFor method that returns available chained actions 
+    /// WaitFor method that returns available chained actions for the WaitFor operations
     /// </summary>
     /// <returns>WaitForActions class</returns>
     public WaitForActions WaitFor()
@@ -71,18 +71,18 @@ public class Utilities
     }
        
     /// <summary>
-    /// Function to pass on the element object of the desired element to interact with
+    /// Method that returns available chained actions on the element being interactied with
     /// </summary>
     /// <param name="IWebElement element"></param>
     /// <returns>OnActions class</returns>
     public OnActions On(IWebElement element)
     {
-        onactions.element = element;
+        onactions.Element = element;
         return onactions;
     }
 
     /// <summary>
-    /// Function to pass on the selector of the desired object to interact with
+    /// Method that returns available chained actions on the selector being interactied with
     /// </summary>
     /// <param name="By selector"></param>
     /// <returns>OnActions class</returns>
@@ -91,10 +91,11 @@ public class Utilities
         try
         {
             IWebElement element = driver.FindElement(selector);
-            onactions.element = element;
+            onactions.Element = element;
         }
-        catch (NoSuchElementException ex) { 
+        catch (NoSuchElementException ex) {
             //Needs completion
+            onactions.Element = null;
         }
         
         return onactions;
@@ -113,7 +114,7 @@ public class Utilities
 } /* Utilities END */
 
 /// <summary>
-/// WaitForActions class
+/// WaitForActions class holds the available methods when expecting for the state of an object.
 /// </summary>
 public class WaitForActions
 {
@@ -169,7 +170,13 @@ public class AssertOptions
 /// </summary>
 public class OnActions
 {
-    public IWebElement element;
+    private IWebElement element;
+
+    public IWebElement Element
+    {
+        get { return element; }
+        set { element = value; }
+    }
     AssertOptions assertoptions = new AssertOptions();
 
     /// <summary>
