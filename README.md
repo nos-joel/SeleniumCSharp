@@ -64,6 +64,18 @@ u.OnDriver().findElementBy...
 
 # Available Methods
 
+## **OnDriver**
+
+This methods is basically a getter of the browser's driver. This allows a seamless integration with this framework's sintaxis.
+
+```cs
+OnDriver()
+```
+
+*Example*
+```cs
+u.OnDriver().Navigate().GoToUrl(url);
+```
 ## **On**
 
 This method will be used for most of the actions performed on an object like *click*, *sendKeys* and *select*. This method requires an input, either a selector (*By*) or an object (*IWebElement*).
@@ -77,34 +89,62 @@ On()
 On(By.Id("id")).Click();
 ```
 ```cs
-IWebElement element = OnDriver().findElement(By.Id("id"));
-On(element).Click();
+IWebElement element = u.OnDriver().findElement(By.Id("id"));
+u.On(element).Click();
 ```
 
 ## Available *On* Actions
 
+*Click*
 ```cs
-On(selector).Click();
+u.On(selector).Click();
 ```
+*Input*
 ```cs
-On(selector).Input("input text"); // SendKeys
+u.On(selector).Input("input text"); // SendKeys
 ```
+*SelectByValue*
 ```cs
-On(selector).AssertThat(args);
+u.On(selector).SelectByValue(value);
+```
+*SelectByIndex*
+```cs
+u.On(selector).SelectByIndex(value);
+```
+*SelectByText*
+```cs
+u.On(selector).SelectByText(value);
+```
+*AssertThat*
+```cs
+u.On(selector).AssertThat(args);
 ```
 
 ## AssertThat
 
-This method is used when performing assertions over an object
-## **Wait**
+This method is used when performing assertions over an object.
 
-Description
+*Equals*
 
 ```cs
-WaitFor().VisibilityOfElement(By locator, int wait-time);
+u.On(selector).AssertThat(attribute-name).Equals(expected-value);
+```
+*Contains*
+
+```cs
+u.On(selector).AssertThat(attribute-name).Contains(expected-value);
+```
+
+
+## **Wait**
+
+Wait for visibility of element.
+
+```cs
+u.WaitFor().VisibilityOfElement(By locator,  int wait-time);
 ```
 *Example*
 
 ```cs
-WaitFor().VisibilityOfElement(By.Id("id"), 5);
+u.WaitFor().VisibilityOfElement(By.Id("id"), 5);
 ```
