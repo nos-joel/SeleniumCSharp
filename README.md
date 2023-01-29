@@ -65,8 +65,46 @@ u.OnDriver().findElementBy...
 # Available Methods
 
 ## **On**
+
+This method will be used for most of the actions performed on an object like *click*, *sendKeys* and *select*. This method requires an input, either a selector (*By*) or an object (*IWebElement*).
+
 ```cs
-On
+On()
+```
+*Example*
 
-Once on your test class and method, you may use the following methods.
+```cs
+On(By.Id("id")).Click();
+```
+```cs
+IWebElement element = OnDriver().findElement(By.Id("id"));
+On(element).Click();
+```
 
+## Available *On* Actions
+
+```cs
+On(selector).Click();
+```
+```cs
+On(selector).Input("input text"); // SendKeys
+```
+```cs
+On(selector).AssertThat(args);
+```
+
+## AssertThat
+
+This method is used when performing assertions over an object
+## **Wait**
+
+Description
+
+```cs
+WaitFor().VisibilityOfElement(By locator, int wait-time);
+```
+*Example*
+
+```cs
+WaitFor().VisibilityOfElement(By.Id("id"), 5);
+```
