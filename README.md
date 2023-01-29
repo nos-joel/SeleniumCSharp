@@ -8,7 +8,7 @@ A base xUnit and Selenium C# project for web testing. It was inspired by RestAss
 * Clone project (https://github.com/nos-joel/SeleniumCSharp.git)
 * Once in Visual Studio: File > Open > Select project name
 
-## Usage
+## Example
 
 As a start, you may head to the file
 ```cs
@@ -37,3 +37,36 @@ public class ModuleA
         }
     }
 ```
+
+# Usage
+
+1. Initialize the Utilities class. No arguments are needed during initialization.
+```cs
+Utilities u = new Utilities();
+```
+
+2. Create the driver. Note: the driver type is created based on a global property.
+```cs
+u.createDriver();
+```
+
+3. Two options are available when it comes to using the driver object.
+
+a. You could retrieve the driver object by
+```cs
+IWebDriver driver = u.getDriver();
+```
+### or 
+b. Use the OnDriver method 
+```cs
+u.OnDriver().findElementBy...
+```
+
+# Available Methods
+
+## **On**
+```cs
+On
+
+Once on your test class and method, you may use the following methods.
+
