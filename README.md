@@ -40,17 +40,17 @@ public class ModuleA
 
 # Usage
 
-1. Initialize the Utilities class. No arguments are needed during initialization.
+**1.** Initialize the Utilities class. No arguments are needed during initialization.
 ```cs
 Utilities u = new Utilities();
 ```
 
-2. Create the driver. Note: the driver type is created based on a global property.
+**2.** Create the driver. Note: the driver type is created based on a global property.
 ```cs
 u.createDriver();
 ```
 
-3. Two options are available when it comes to using the driver object.
+**3.** Two options are available when it comes to using the driver object.
 
 a. You could retrieve the driver object by
 ```cs
@@ -62,9 +62,11 @@ b. Use the OnDriver method
 u.OnDriver().findElementBy...
 ```
 
-# Available Methods
+**4.** Use any of the available methods below.
 
-## **OnDriver**
+## Available Methods
+
+ **OnDriver**
 
 This methods is basically a getter of the browser's driver. This allows a seamless integration with this framework's sintaxis.
 
@@ -76,7 +78,7 @@ OnDriver()
 ```cs
 u.OnDriver().Navigate().GoToUrl(url);
 ```
-## **On**
+**On**
 
 This method will be used for most of the actions performed on an object like *click*, *sendKeys* and *select*. This method requires an input, either a selector (*By*) or an object (*IWebElement*).
 
@@ -93,7 +95,7 @@ IWebElement element = u.OnDriver().findElement(By.Id("id"));
 u.On(element).Click();
 ```
 
-## Available *On* Actions
+Available **On** Actions
 
 *Click*
 ```cs
@@ -120,7 +122,7 @@ u.On(selector).SelectByText(value);
 u.On(selector).AssertThat(args);
 ```
 
-## AssertThat
+**AssertThat**
 
 This method is used when performing assertions over an object.
 
@@ -136,7 +138,7 @@ u.On(selector).AssertThat(attribute-name).Contains(expected-value);
 ```
 
 
-## **Wait**
+**Wait**
 
 Wait for visibility of element.
 
